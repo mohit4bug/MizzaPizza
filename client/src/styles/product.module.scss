@@ -1,0 +1,133 @@
+.container {
+    min-height: calc(100vh - 80px);
+    width: 100%;
+    display: flex;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left {
+        flex: 1;
+        display: grid;
+        place-items: center;
+
+        @media (max-width: 768px) {
+            min-height: 300px;
+        }
+
+
+        .imageContainer {
+            min-height: 100%;
+            min-width: 100%;
+            position: relative;
+        }
+    }
+
+    .right {
+        padding: 20px;
+        height: auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+
+        .pizzaName {
+            text-transform: uppercase;
+            color: #ed6c02;
+            font-size: 35px;
+        }
+
+        .price {
+            font-weight: 500;
+            font-size: 20px;
+        }
+
+        .desc {
+            max-height: 200px;
+            font-size: 16px;
+            color: #303030;
+            overflow: hidden;
+        }
+
+
+    }
+
+    .title {
+        font-size: 20px;
+        margin-top: 50px;
+    }
+
+    .sizes {
+        display: flex;
+        gap: 50px;
+        color: #ed6c02;
+        align-items: center;
+
+        .sizeIcon {
+            cursor: pointer;
+            position: relative;
+
+            .value {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background: #ed6c02;
+                color: white;
+                font-size: 12px;
+                top: -15px;
+                left: 25px;
+                display: grid;
+                place-items: center;
+            }
+        }
+    }
+
+    .additionalIngredients {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .ingredient {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            label {
+                font-weight: 500;
+            }
+
+            input[type="checkbox"] {
+                height: 20px;
+                width: 20px;
+                accent-color: #ed6c02;
+            }
+        }
+    }
+
+    .quantity {
+        padding: 25px 0px;
+        display: flex;
+        gap: 5px;
+
+        input {
+            height: 30px;
+            width: 100px;
+            padding-left: 5px;
+            outline: none;
+            font-weight: 500;
+        }
+
+        button {
+            padding: 0px 5px;
+            background: #ed6c02;
+            color: white;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,183 @@
+.container {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    padding: 0px 10px;
+
+    @media (max-width: 989px) {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .left {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        gap: 30px;
+
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 100px;
+
+            @media (max-width: 989px) {
+                justify-content: space-between;
+            }
+
+            @media (max-width: 768px) {
+                height: auto;
+                gap: 20px;
+            }
+
+            .leftInner {
+                border: 2px solid rgb(235, 235, 235);
+                border-radius: 20px;
+            }
+
+            .rightInner {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-around;
+
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .name {
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    font-size: 18px;
+                    color: #ed6c02;
+                }
+
+                .extras {
+                    font-size: 14px;
+                    color: #303030;
+                }
+
+                .price {
+                    font-weight: 500;
+                }
+
+                .quantity {
+                    font-weight: 500;
+                }
+            }
+
+        }
+    }
+
+    .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+
+
+
+        .coupons {
+            height: auto;
+
+            .couponToggle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0px 10px;
+                height: 50px;
+                border-radius: 30px;
+                background: whitesmoke;
+                border: thin solid rgb(235, 235, 235);
+
+                .heading {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: #ed6c02;
+
+                    p {
+                        font-weight: 500;
+                        color: black;
+                    }
+                }
+
+                .toggleArrow {
+                    cursor: pointer;
+                }
+            }
+
+            .availableCoupons {
+
+                height: 150px;
+                width: 100%;
+                overflow: auto;
+                padding: 5px 10px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .singleCoupon {
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    input {
+                        height: 20px;
+                        width: 20px;
+                        accent-color: #ed6c02;
+                    }
+
+                    p {
+                        font-weight: 500;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .bill {
+            border: 1px solid black;
+            min-height: 200px;
+            border-radius: 30px;
+            background: whitesmoke;
+            border: thin solid rgb(235, 235, 235);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            margin-bottom: 10px;
+
+
+            .title {
+                font-weight: 600;
+                font-size: 18px;
+            }
+
+            .billItem {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 14px;
+
+                .color {
+                    color: #ed6c02;
+                    font-weight: 400;
+                }
+            }
+
+            button {
+                height: 35px;
+                background: #ed6c02;
+                border: none;
+                outline: none;
+                font-weight: 500;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+}
