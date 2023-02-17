@@ -12,69 +12,61 @@
         flex: 2;
         display: flex;
         flex-direction: column;
-        padding: 10px;
+        padding: 20px 10px;
         gap: 30px;
 
-        .product {
+
+
+        .details {
             display: flex;
             align-items: center;
             justify-content: space-around;
-            height: 100px;
-            gap: 50px;
+            font-size: 14px;
 
-
-            @media (max-width: 989px) {
-                justify-content: space-between;
+            p {
+                display: flex;
+                align-items: center;
+                gap: 5px;
             }
 
             @media (max-width: 768px) {
-                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
                 gap: 20px;
-            }
 
-            .leftInner {
-                border: 2px solid rgb(235, 235, 235);
-                border-radius: 20px;
             }
+        }
 
-            .rightInner {
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 14px;
+
+            p {
                 display: flex;
-                width: 100%;
                 align-items: center;
-                justify-content: space-around;
-
+                gap: 5px;
 
                 @media (max-width: 768px) {
-                    flex-direction: column;
-                    align-items: flex-start;
+                    width: 100%;
+                    justify-content: space-between;
                 }
 
-                .name {
-                    font-weight: 500;
-                    text-transform: uppercase;
-                    font-size: 18px;
-                    color: #ed6c02;
-                    flex: 1;
-                }
-
-                .extras {
-                    font-size: 14px;
-                    color: #303030;
-                    flex: 1;
-                }
-
-                .price {
-                    font-weight: 500;
-                    flex: 1;
-                }
-
-                .quantity {
-                    font-weight: 500;
-                    flex: 1;
+                .doneIcon {
+                    color: green;
                 }
             }
 
+            @media (max-width: 768px) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+
+            }
         }
+
+
     }
 
     .right {
@@ -115,35 +107,6 @@
                     cursor: pointer;
                 }
             }
-
-            .availableCoupons {
-
-                height: 150px;
-                width: 100%;
-                overflow: auto;
-                padding: 5px 10px;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-
-                .singleCoupon {
-                    height: 30px;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-
-                    input {
-                        height: 20px;
-                        width: 20px;
-                        accent-color: #ed6c02;
-                    }
-
-                    p {
-                        font-weight: 500;
-                        font-size: 14px;
-                    }
-                }
-            }
         }
 
         .bill {
@@ -178,12 +141,14 @@
 
             button {
                 height: 35px;
-                background: #ed6c02;
                 border: none;
                 outline: none;
                 font-weight: 500;
-                color: white;
+                color: #ed6c02;
                 cursor: pointer;
+                background: white;
+                border: 2px solid #ed6c02;
+                cursor: not-allowed;
             }
         }
     }

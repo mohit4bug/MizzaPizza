@@ -5,126 +5,42 @@ import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const Cart = () => {
 
     const [couponMenu, setCouponMenu] = useState(false);
+    const dispatch = useDispatch()
+    const cart = useSelector(state => state.cart)
+
+
 
     return (
         <div className={styles.container}>
             <div className={styles.left}>
-                {/* single product */}
-                <div className={styles.product}>
-                    <div className={styles.leftInner}>
-                        <span className={styles.pizzaImageWrapper}>
-                            <Image src={pizzaImage} height={100} width={100} alt="pizza" />
-                        </span>
-                    </div>
-                    <div className={styles.rightInner}>
-                        <p className={styles.name}>coralzo</p>
-                        <p className={styles.extras}><strong>Extras: </strong> cheese,spicy sauce</p>
-                        <p className={styles.price}><strong>Price: </strong>₹300</p>
-                        <p className={styles.quantity}><strong>Qty: </strong>5</p>
-                    </div>
-                </div>
-                {/* single product */}
-                <div className={styles.product}>
-                    <div className={styles.leftInner}>
-                        <span className={styles.pizzaImageWrapper}>
-                            <Image src={pizzaImage} height={100} width={100} alt="pizza" />
-                        </span>
-                    </div>
-                    <div className={styles.rightInner}>
-                        <p className={styles.name}>coralzo</p>
-                        <p className={styles.extras}><strong>Extras: </strong> cheese,spicy sauce</p>
-                        <p className={styles.price}><strong>Price: </strong>₹300</p>
-                        <p className={styles.quantity}><strong>Qty: </strong>5</p>
-                    </div>
-                </div>
-                {/* single product */}
-                <div className={styles.product}>
-                    <div className={styles.leftInner}>
-                        <span className={styles.pizzaImageWrapper}>
-                            <Image src={pizzaImage} height={100} width={100} alt="pizza" />
-                        </span>
-                    </div>
-                    <div className={styles.rightInner}>
-                        <p className={styles.name}>coralzo</p>
-                        <p className={styles.extras}><strong>Extras: </strong> cheese,spicy sauce</p>
-                        <p className={styles.price}><strong>Price: </strong>₹300</p>
-                        <p className={styles.quantity}><strong>Qty: </strong>5</p>
-                    </div>
-                </div>
-                {/* single product */}
-                <div className={styles.product}>
-                    <div className={styles.leftInner}>
-                        <span className={styles.pizzaImageWrapper}>
-                            <Image src={pizzaImage} height={100} width={100} alt="pizza" />
-                        </span>
-                    </div>
-                    <div className={styles.rightInner}>
-                        <p className={styles.name}>coralzo</p>
-                        <p className={styles.extras}><strong>Extras: </strong> cheese,spicy sauce</p>
-                        <p className={styles.price}><strong>Price: </strong>₹300</p>
-                        <p className={styles.quantity}><strong>Qty: </strong>5</p>
-                    </div>
-                </div>
-                {/* single product */}
-                <div className={styles.product}>
-                    <div className={styles.leftInner}>
-                        <span className={styles.pizzaImageWrapper}>
-                            <Image src={pizzaImage} height={100} width={100} alt="pizza" />
-                        </span>
-                    </div>
-                    <div className={styles.rightInner}>
-                        <p className={styles.name}>coralzo</p>
-                        <p className={styles.extras}><strong>Extras: </strong> cheese,spicy sauce</p>
-                        <p className={styles.price}><strong>Price: </strong>₹300</p>
-                        <p className={styles.quantity}><strong>Qty: </strong>5</p>
-                    </div>
-                </div>
-                {/* single product */}
-                <div className={styles.product}>
-                    <div className={styles.leftInner}>
-                        <span className={styles.pizzaImageWrapper}>
-                            <Image src={pizzaImage} height={100} width={100} alt="pizza" />
-                        </span>
-                    </div>
-                    <div className={styles.rightInner}>
-                        <p className={styles.name}>coralzo</p>
-                        <p className={styles.extras}><strong>Extras: </strong> cheese,spicy sauce</p>
-                        <p className={styles.price}><strong>Price: </strong>₹300</p>
-                        <p className={styles.quantity}><strong>Qty: </strong>5</p>
-                    </div>
-                </div>
-                {/* single product */}
-                <div className={styles.product}>
-                    <div className={styles.leftInner}>
-                        <span className={styles.pizzaImageWrapper}>
-                            <Image src={pizzaImage} height={100} width={100} alt="pizza" />
-                        </span>
-                    </div>
-                    <div className={styles.rightInner}>
-                        <p className={styles.name}>coralzo</p>
-                        <p className={styles.extras}><strong>Extras: </strong> cheese,spicy sauce</p>
-                        <p className={styles.price}><strong>Price: </strong>₹300</p>
-                        <p className={styles.quantity}><strong>Qty: </strong>5</p>
-                    </div>
-                </div>
-                {/* single product */}
-                <div className={styles.product}>
-                    <div className={styles.leftInner}>
-                        <span className={styles.pizzaImageWrapper}>
-                            <Image src={pizzaImage} height={100} width={100} alt="pizza" />
-                        </span>
-                    </div>
-                    <div className={styles.rightInner}>
-                        <p className={styles.name}>coralzo</p>
-                        <p className={styles.extras}><strong>Extras: </strong> cheese,spicy sauce</p>
-                        <p className={styles.price}><strong>Price: </strong>₹300</p>
-                        <p className={styles.quantity}><strong>Qty: </strong>5</p>
-                    </div>
-                </div>
+
+                {
+                    cart.products.map(prod => (
+                        <div className={styles.product} key={prod._id}>
+                            <div className={styles.leftInner}>
+                                <span className={styles.pizzaImageWrapper}>
+                                    <Image src={pizzaImage} height={100} width={100} alt="pizza" />
+                                </span>
+                            </div>
+                            <div className={styles.rightInner}>
+                                <p className={styles.name}>{prod.title}</p>
+                                <p className={styles.extras}><strong>Extras: </strong>{prod.extras.map((item) => {
+                                    return item.text
+                                })}</p>
+                                <p className={styles.price}><strong>Price: </strong>₹{prod.price}</p>
+                                <p className={styles.quantity}><strong>Qty: </strong>{prod.qty}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+
+
             </div>
             <div className={styles.right}>
                 <div className={styles.coupons}>
@@ -151,7 +67,7 @@ const Cart = () => {
                         <p className={styles.key}>
                             Item total (incl. taxes)
                         </p>
-                        <p className={styles.value}>₹700</p>
+                        <p className={styles.value}>₹{cart?.total}</p>
                     </span>
                     <span className={styles.billItem}>
                         <p className={styles.key}>
@@ -165,7 +81,7 @@ const Cart = () => {
                         </p>
                         <p className={styles.value}>
                             <strong>
-                                ₹700
+                                ₹{cart?.total}
                             </strong>
                         </p>
                     </span>

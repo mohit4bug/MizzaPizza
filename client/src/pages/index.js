@@ -3,11 +3,9 @@ import Carousel from '@/components/Carousel'
 import styles from '@/styles/home.module.scss';
 import Pizza from '@/components/Pizza';
 import Announcement from '@/components/Announcement';
-import Link from 'next/link';
+import axios from "axios"
 
-export default function Home() {
-
-  const dummyArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+export default function Home({ pizzaList }) {
 
   return (
     <>
@@ -20,13 +18,22 @@ export default function Home() {
       <Announcement />
       <Carousel />
       <div className={styles.pizzaList}>
-
         {
-          dummyArr.map((d) => (
-            <Link href={`/product/${d}`}><Pizza /></Link>
+          pizzaList.map((pizza) => (
+            <Pizza pizza={pizza} key={pizza._id} />
           ))
         }
       </div>
     </>
   )
+}
+
+
+export const getServerSideProps = async () => {
+  const res = await axios.get('http://localhost:3000/api/products')
+  return {
+    props: {
+      pizzaList: res.data.data
+    }
+  }
 }
