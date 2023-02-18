@@ -1,15 +1,44 @@
 import dbConnect from "lib/mongodb";
 import Order from "models/Order";
 
-
 const handler = async (req, res) => {
-    dbConnect()
-    const { method, query: { id } } = req;
+    const {
+        method,
+        query: { id },
+    } = req;
 
-    if (method === "GET") { }
-    if (method === "PUT") { }
-    if (method === "DELETE") { }
+    await dbConnect();
 
-}
+    if (method === "GET") {
+        try {
+            const order = await Order.findById(id);
+            res.status(200).json({
+                message: "Order fetched successfully",
+                success: true,
+                data: order
+            });
+        } catch (err) {
+            res.status(500).json({
+                message: err.message,
+                success: false,
+            });
+        }
+    }
+    if (method === "PUT") {
+        try {
+            const order = await Order.findByIdAndUpdate(id, req.body, {
+                new: true,
+            });
+            res.status(200).json(order);
+        } catch (err) {
+            res.status(500).json({
+                message: err.message,
+                success: false,
+            });
+        }
+    }
+    if (method === "DELETE") {
+    }
+};
 
-export default handler
+export default handler;

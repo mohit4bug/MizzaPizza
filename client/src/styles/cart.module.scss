@@ -185,6 +185,15 @@
                 color: white;
                 cursor: pointer;
             }
+
+            .cod {
+                cursor: not-allowed;
+
+                &:disabled {
+                    background: #a04800;
+                    color: rgb(200, 200, 200);
+                }
+            }
         }
     }
 }

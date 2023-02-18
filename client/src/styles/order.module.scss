@@ -43,7 +43,7 @@
             justify-content: space-around;
             font-size: 14px;
 
-            p {
+            .done {
                 display: flex;
                 align-items: center;
                 gap: 5px;
@@ -55,6 +55,51 @@
 
                 .doneIcon {
                     color: green;
+                }
+            }
+
+            .progress {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                animation: progress 1s ease infinite alternate;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+
+                .doneIcon {
+                    color: green;
+                    display: none;
+                }
+
+            }
+
+            @keyframes progress {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+
+                    opacity: 1;
+                }
+            }
+
+            .notdone {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                opacity: 0.5;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+
+                .doneIcon {
+                    display: none;
                 }
             }
 
