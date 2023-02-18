@@ -25,4 +25,20 @@ export default async function handler(req, res) {
         }
 
     }
+    if (method === "DELETE") {
+        try {
+            await ProductModel.findByIdAndDelete(id);
+            res.status(200).json({
+                message: "Pizza deleted successfully",
+                success: true,
+            })
+        }
+        catch (error) {
+            res.status(500).json({
+                message: e.message,
+                success: false
+            })
+        }
+
+    }
 }

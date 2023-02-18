@@ -23,7 +23,7 @@ const Cart = () => {
     const [couponMenu, setCouponMenu] = useState(false);
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart)
-    const amount = cart.total;
+    const amount = (cart.total / 10);
     const currency = "USD";
     const style = { "layout": "vertical" };
     const [showPaymentOptions, setShowPaymentOptions] = useState(false);
