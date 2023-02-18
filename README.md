@@ -9,4 +9,4 @@ Mizza is a pizza ordering app built on NextJS 🍕.
 * Material UI (Icons)
 
 # Tech:Backend
-* working...
+* Mongoose NextJS, Paypal(for now)
